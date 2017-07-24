@@ -1,16 +1,5 @@
 package edu.uniandes.Dominio
 
-case class TipoDeDato[T](
-                          nombreCampo: String,
-                          valor: T
-                        )
-
-case class Registro[T](
-                        registro: List[TipoDeDato[T]]
-                      )
-
-case class TablaLibrosFisicos(
-                             registros: List[Registro[TablaLibrosFisicos]]
-                             ){
-
-}
+trait Dato
+case class TipoDeDato[T] (nombreCampo: String,valor: T) extends Dato
+case class TablaItems(registros: List[List[Dato]])
