@@ -1,4 +1,4 @@
-package example
+package edu.uniandes
 
 object Hello extends Greeting with App {
   println(greeting)

@@ -1,4 +1,4 @@
-package example
+package edu.uniandes
 
 import org.scalatest._
 
