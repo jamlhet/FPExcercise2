@@ -43,4 +43,7 @@ object Hello extends App {
   }.getOrElse(0)).foreach(println)
 
   val hola: List[List[TipoDeDato]] = tablaLibros.registros
+
+  BibliotecaSQL.sort(hola)(Ordering.by(x => (x)))
+
 }
