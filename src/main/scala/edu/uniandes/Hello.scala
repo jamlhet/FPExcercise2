@@ -1,38 +1,29 @@
 package edu.uniandes
 
-import edu.uniandes.Dominio.{Dato, TablaItems, TipoDeDato}
+import edu.uniandes.Dominio._
 
 object Hello extends App {
 
-  val registro0: List[Dato] = List(
-    new TipoDeDato[String]("Autor", "HGabo"),
-    new TipoDeDato[String]("Titulo", "ZLa María"),
-    new TipoDeDato[Int]("Numero de Paginas", 752)
+  val registro0: List[TipoDeDato[_>: Autor with Titulo with NumeroDePaginas]] = List(
+    new TipoDeDato[Autor](new Autor("HGabo")),
+    new TipoDeDato[Titulo](new Titulo("ZLa María")),
+    new TipoDeDato[NumeroDePaginas](new NumeroDePaginas(752))
   )
 
-  val registro: List[Dato] = List(
-    new TipoDeDato[String]("Autor", "HGabo"),
-    new TipoDeDato[String]("Titulo", "ZLa María"),
-    new TipoDeDato[Int]("Numero de Paginas", 752)
+  val registro1: List[TipoDeDato[_>: Autor with Titulo with NumeroDePaginas]] = List(
+    new TipoDeDato[Autor](new Autor("AGabo")),
+    new TipoDeDato[Titulo](new Titulo("CLa María")),
+    new TipoDeDato[NumeroDePaginas](new NumeroDePaginas(521))
   )
 
-  val registro1: List[Dato] = List(
-    new TipoDeDato[String]("Autor", "BGabo"),
-    new TipoDeDato[String]("Titulo", "YLa María"),
-    new TipoDeDato[Int]("Numero de Paginas", 752)
-  )
-
-  val registro2: List[Dato] = List(
-    new TipoDeDato[String]("Autor", "AGabo"),
-    new TipoDeDato[String]("Titulo", "XLa María"),
-    new TipoDeDato[Int]("Numero de Paginas", 752)
-  )
-
-  val Registros1: List[List[Dato]] = List(registro0)
-  val Registros2: List[List[Dato]] = List(registro,registro1,registro2)
+  val Registros1: List[List[TipoDeDato[_>: Autor with Titulo with NumeroDePaginas]]] = List(registro0)
+  val Registros2: List[List[TipoDeDato[_>: Autor with Titulo with NumeroDePaginas]]] = List(registro1)
 
   val tablaLibros: TablaItems = new TablaItems(Registros1)
   tablaLibros.registrosTabla.foreach(println)
   println("----")
-  tablaLibros.insertInto(Registros2).registrosTabla.foreach(println)
+  tablaLibros.insertInto(Registros2)
+  tablaLibros.registrosTabla.foreach(println)
+  println("----")
+  //tablaLibros.registrosTabla.sortBy(r=>r.sortBy(s=>s.valor[NumeroDePaginas]))
 }
