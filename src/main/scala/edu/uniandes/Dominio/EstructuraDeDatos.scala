@@ -1,11 +1,14 @@
 package edu.uniandes.Dominio
 
-case class TipoDeDato[T] (nombreCampo: String,valor: T)
+sealed trait TipoDeDato
 
-case class TablaItems(registros: List[List[TipoDeDato[_>: String with Int]]]){
-  var registrosTabla = registros
-  def insertInto(reg: List[List[TipoDeDato[_>: String with Int]]]): TablaItems ={
-    registrosTabla = this.registrosTabla ::: reg
+case class Autor (autor:String) extends TipoDeDato
+case class Titulo (titulo:String) extends TipoDeDato
+case class NumeroDePaginas (numeroDePaginas:Int) extends TipoDeDato
+
+class TablaItems(var registros: List[List[TipoDeDato]]){
+  def insertInto(reg: List[List[TipoDeDato]]): TablaItems ={
+    registros = registros ::: reg
     this
   }
 }
