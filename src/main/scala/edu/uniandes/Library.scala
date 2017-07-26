@@ -17,4 +17,5 @@ object Library extends App {
   booksTable.select(booksTable)(book5)
   booksTable.update(booksTable)(book4, book1)
   booksTable.update(booksTable)(book4, book5)
+
 }
