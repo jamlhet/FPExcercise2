@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c7226035-d26d-464b-a9e3-32b4fa6e61ff" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/edu/uniandes/Library.scala" afterPath="$PROJECT_DIR$/src/main/scala/edu/uniandes/Library.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/DataStructure.scala" afterPath="$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/DataStructure.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/LibrarySQL.scala" afterPath="$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/LibrarySQL.scala" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/project/project/target/" />
@@ -24,7 +21,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Library.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Library.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/edu/uniandes/Library.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="304">
@@ -44,7 +41,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LibrarySQL.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LibrarySQL.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/LibrarySQL.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="556">
@@ -556,11 +553,18 @@
       <option name="project" value="LOCAL" />
       <updated>1501046722622</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Second version for SQL Syntax">
+      <created>1501046899047</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1501046899047</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55245000" />
+    <option name="totallyTimeSpent" value="55261000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="49" width="1922" height="1092" extended-state="6" />
@@ -881,10 +885,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/edu/uniandes/Library.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/LibrarySQL.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+        <state relative-caret-position="556">
+          <caret line="38" column="49" lean-forward="true" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
           <folding />
         </state>
       </provider>
@@ -897,10 +901,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/LibrarySQL.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/edu/uniandes/Library.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="38" column="49" lean-forward="true" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
+        <state relative-caret-position="304">
+          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
           <folding />
         </state>
       </provider>
