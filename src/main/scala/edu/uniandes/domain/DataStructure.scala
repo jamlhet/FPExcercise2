@@ -36,11 +36,21 @@ class LibraryTable[T](var listRegisters: List[T]){
     }
   }
 
-  def selectAll(table:LibraryTable[T])(): List[T] = {
-    println(s"Records found ${listRegisters.size}")
-    listRegisters.foreach(x=>println(x))
-    println("**************")
-    listRegisters
+  def select(table:LibraryTable[T])(where:Any): List[T] = {
+    where match{
+      case where:String =>
+        if(where equals "*"){
+          println(s"Records found ${listRegisters.size}")
+          listRegisters.foreach(x=>println(x))
+          println("**************")
+          listRegisters
+        }else{
+          List()
+        }
+      case where:T =>{
+        findOne(table)(where)
+      }
+    }
   }
 
   def findOne(table:LibraryTable[T])(register: T): List[T]={
