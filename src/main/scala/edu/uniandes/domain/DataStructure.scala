@@ -33,7 +33,9 @@ class LibraryTable[T](var registers: List[T]){
 
   def selectAll(table:LibraryTable[T])(): List[T] = registers
 
-  /*def sortBy(table:LibraryTable[DataType])(column:DataType): List[T]={
-    registers.sortBy(_=>_.column)
-  }*/
+  def findOne(table:LibraryTable[T])(register: T): List[T]={
+    val register = selectAll(table).filter(x => x equals register)
+    register.foreach(x=>println(x))
+    register
+  }
 }
