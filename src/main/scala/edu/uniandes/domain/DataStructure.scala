@@ -2,8 +2,8 @@ package edu.uniandes.domain
 
 sealed trait DataType
 
-case class Author(autor: String) extends DataType with Ordered[Author] {
-  override def compare(that: Author): Int = this.autor compare that.autor
+case class Author(author: String) extends DataType with Ordered[Author] {
+  override def compare(that: Author): Int = this.author compare that.author
 }
 
 case class Title(title: String) extends DataType with Ordered[Title] {
