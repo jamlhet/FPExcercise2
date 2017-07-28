@@ -4,14 +4,9 @@ class LibrarySQL[T](var listRegisters: List[T]) {
 
   def insertInto(table: LibrarySQL[T])(newRegister: T): LibrarySQL[T] = {
     println(s"Insert process...")
-    if (findOne(table)(newRegister).size > 1) {
-      println(s"The item already exists in the database")
-      table
-    } else {
-      table.listRegisters = table.listRegisters ::: List(newRegister)
-      println(s"The item $newRegister was inserted successfully")
-      table
-    }
+    table.listRegisters = table.listRegisters ::: List(newRegister)
+    println(s"The item $newRegister was inserted successfully")
+    table
   }
 
   def select(table: LibrarySQL[T])(where: List[_ >: String with Any]): List[T] = {
@@ -31,6 +26,10 @@ class LibrarySQL[T](var listRegisters: List[T]) {
             table.listRegisters.filter(_.asInstanceOf[LibraryItem].pages.pages > x)
           case IssueNumber(x) =>
             table.listRegisters.filter(_.asInstanceOf[LibraryItem].issueNumber.issueNumber > x)
+          case LastDayBorrowed(x) =>
+            table.listRegisters.filter(_.asInstanceOf[LibraryItem].lastDayBorrowed.lastDayBorrowed after x)
+          case DaysBorrow(x) =>
+            table.listRegisters.filter(_.asInstanceOf[LibraryItem].daysBorrow.daysBorrow > x)
           case _ =>
             println(s"Data type not supported")
             List()
@@ -45,6 +44,10 @@ class LibrarySQL[T](var listRegisters: List[T]) {
             table.listRegisters.filter(_.asInstanceOf[LibraryItem].pages.pages < x)
           case IssueNumber(x) =>
             table.listRegisters.filter(_.asInstanceOf[LibraryItem].issueNumber.issueNumber < x)
+          case LastDayBorrowed(x) =>
+            table.listRegisters.filter(_.asInstanceOf[LibraryItem].lastDayBorrowed.lastDayBorrowed before x)
+          case DaysBorrow(x) =>
+            table.listRegisters.filter(_.asInstanceOf[LibraryItem].daysBorrow.daysBorrow < x)
           case _ =>
             println(s"Data type not supported")
             List()
@@ -59,6 +62,10 @@ class LibrarySQL[T](var listRegisters: List[T]) {
             table.listRegisters.filter(_.asInstanceOf[LibraryItem].pages.pages equals x)
           case IssueNumber(x) =>
             table.listRegisters.filter(_.asInstanceOf[LibraryItem].issueNumber.issueNumber equals x)
+          case LastDayBorrowed(x) =>
+            table.listRegisters.filter(_.asInstanceOf[LibraryItem].lastDayBorrowed.lastDayBorrowed equals x)
+          case DaysBorrow(x) =>
+            table.listRegisters.filter(_.asInstanceOf[LibraryItem].daysBorrow.daysBorrow equals x)
           case IsElectronic(x) =>
             table.listRegisters.filter(_.asInstanceOf[LibraryItem].IsElectronic)
           case _ =>
