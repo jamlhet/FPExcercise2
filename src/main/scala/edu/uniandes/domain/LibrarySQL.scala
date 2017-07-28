@@ -68,6 +68,8 @@ class LibrarySQL[T](var listRegisters: List[T]) {
             table.listRegisters.filter(_.asInstanceOf[BorrowItem].daysBorrow.daysBorrow equals x)
           case IsElectronic(x) =>
             table.listRegisters.filter(_.asInstanceOf[LibraryItem].IsElectronic)
+          case ItemUUID(x) =>
+            table.listRegisters.filter(_.asInstanceOf[LibraryItem].itemUUID.itemUUID equals x)
           case _ =>
             println(s"Data type not supported")
             List()
