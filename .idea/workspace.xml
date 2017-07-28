@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c7226035-d26d-464b-a9e3-32b4fa6e61ff" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/DataStructure.scala" afterPath="$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/DataStructure.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/edu/uniandes/Library.scala" afterPath="$PROJECT_DIR$/src/main/scala/edu/uniandes/Library.scala" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/project/project/target/" />
@@ -24,21 +24,21 @@
     <splitter split-orientation="horizontal" split-proportion="0.4823906">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Library.scala" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Library.scala" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/scala/edu/uniandes/Library.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="144">
-                  <caret line="9" column="73" lean-forward="true" selection-start-line="9" selection-start-column="73" selection-end-line="9" selection-end-column="73" />
+                <state relative-caret-position="400">
+                  <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="29" selection-end-column="85" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="DataStructure.scala" pinned="false" current-in-tab="true">
+          <file leaf-file-name="DataStructure.scala" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/DataStructure.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="732">
-                  <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+                <state relative-caret-position="238">
+                  <caret line="20" column="29" lean-forward="true" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
                   <folding />
                 </state>
               </provider>
@@ -51,8 +51,8 @@
           <file leaf-file-name="LibrarySQL.scala" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/LibrarySQL.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-772">
-                  <caret line="2" column="16" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="16" />
+                <state relative-caret-position="544">
+                  <caret line="76" column="14" lean-forward="true" selection-start-line="76" selection-start-column="14" selection-end-line="76" selection-end-column="14" />
                   <folding />
                 </state>
               </provider>
@@ -100,9 +100,9 @@
         <option value="$PROJECT_DIR$/src/main/scala/edu/uniandes/LibraryTest2.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/edu/uniandes/LibraryV1.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/LibrarySQL.java" />
-        <option value="$PROJECT_DIR$/src/main/scala/edu/uniandes/Library.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/LibrarySQL.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/DataStructure.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/edu/uniandes/Library.scala" />
       </list>
     </option>
   </component>
@@ -471,7 +471,7 @@
       <workItem from="1500991895367" duration="4225000" />
       <workItem from="1501009758802" duration="8190000" />
       <workItem from="1501121850892" duration="13000" />
-      <workItem from="1501203234128" duration="20121000" />
+      <workItem from="1501203234128" duration="20306000" />
     </task>
     <task id="LOCAL-00001" summary="Se actualiza repo.">
       <created>1500922171418</created>
@@ -592,11 +592,18 @@
       <option name="project" value="LOCAL" />
       <updated>1501222071507</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Third version for LibrarySQL Syntax">
+      <created>1501223370875</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1501223370875</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78160000" />
+    <option name="totallyTimeSpent" value="78345000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -904,26 +911,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/DataStructure.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="20" column="29" lean-forward="true" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/LibrarySQL.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-772">
-          <caret line="2" column="16" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="16" />
+        <state relative-caret-position="544">
+          <caret line="76" column="14" lean-forward="true" selection-start-line="76" selection-start-column="14" selection-end-line="76" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/edu/uniandes/Library.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="73" lean-forward="true" selection-start-line="9" selection-start-column="73" selection-end-line="9" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/DataStructure.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="732">
-          <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+        <state relative-caret-position="400">
+          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="29" selection-end-column="85" />
           <folding />
         </state>
       </provider>
