@@ -26,10 +26,10 @@ class LibrarySQL[T](var listRegisters: List[T]) {
             table.listRegisters.filter(_.asInstanceOf[LibraryItem].pages.pages > x)
           case IssueNumber(x) =>
             table.listRegisters.filter(_.asInstanceOf[LibraryItem].issueNumber.issueNumber > x)
-          case LastDayBorrowed(x) =>
-            table.listRegisters.filter(_.asInstanceOf[LibraryItem].lastDayBorrowed.lastDayBorrowed after x)
+          case FirstDayBorrowed(x) =>
+            table.listRegisters.filter(_.asInstanceOf[BorrowItem].firstDayBorrowed.firstDayBorrowed after x)
           case DaysBorrow(x) =>
-            table.listRegisters.filter(_.asInstanceOf[LibraryItem].daysBorrow.daysBorrow > x)
+            table.listRegisters.filter(_.asInstanceOf[BorrowItem].daysBorrow.daysBorrow > x)
           case _ =>
             println(s"Data type not supported")
             List()
@@ -44,10 +44,10 @@ class LibrarySQL[T](var listRegisters: List[T]) {
             table.listRegisters.filter(_.asInstanceOf[LibraryItem].pages.pages < x)
           case IssueNumber(x) =>
             table.listRegisters.filter(_.asInstanceOf[LibraryItem].issueNumber.issueNumber < x)
-          case LastDayBorrowed(x) =>
-            table.listRegisters.filter(_.asInstanceOf[LibraryItem].lastDayBorrowed.lastDayBorrowed before x)
+          case FirstDayBorrowed(x) =>
+            table.listRegisters.filter(_.asInstanceOf[BorrowItem].firstDayBorrowed.firstDayBorrowed before x)
           case DaysBorrow(x) =>
-            table.listRegisters.filter(_.asInstanceOf[LibraryItem].daysBorrow.daysBorrow < x)
+            table.listRegisters.filter(_.asInstanceOf[BorrowItem].daysBorrow.daysBorrow < x)
           case _ =>
             println(s"Data type not supported")
             List()
@@ -62,10 +62,10 @@ class LibrarySQL[T](var listRegisters: List[T]) {
             table.listRegisters.filter(_.asInstanceOf[LibraryItem].pages.pages equals x)
           case IssueNumber(x) =>
             table.listRegisters.filter(_.asInstanceOf[LibraryItem].issueNumber.issueNumber equals x)
-          case LastDayBorrowed(x) =>
-            table.listRegisters.filter(_.asInstanceOf[LibraryItem].lastDayBorrowed.lastDayBorrowed equals x)
+          case FirstDayBorrowed(x) =>
+            table.listRegisters.filter(_.asInstanceOf[BorrowItem].firstDayBorrowed.firstDayBorrowed equals x)
           case DaysBorrow(x) =>
-            table.listRegisters.filter(_.asInstanceOf[LibraryItem].daysBorrow.daysBorrow equals x)
+            table.listRegisters.filter(_.asInstanceOf[BorrowItem].daysBorrow.daysBorrow equals x)
           case IsElectronic(x) =>
             table.listRegisters.filter(_.asInstanceOf[LibraryItem].IsElectronic)
           case _ =>

@@ -14,6 +14,10 @@ case class ItemUUID(itemUUID: String) extends LibraryDataType[ItemUUID] {
   override def compare(that: ItemUUID): Int = this.itemUUID compare that.itemUUID
 }
 
+case class BorrowUUID(borrowUUID: String) extends LibraryDataType[BorrowUUID] {
+  override def compare(that: BorrowUUID): Int = this.borrowUUID compare that.borrowUUID
+}
+
 case class Title(title: String) extends LibraryDataType[Title] {
   override def compare(that: Title): Int = this.title compare that.title
 }
@@ -30,6 +34,10 @@ case class IsElectronic(isElectronic: Boolean) extends LibraryDataType[IsElectro
   override def compare(that: IsElectronic): Int = this.isElectronic compare that.isElectronic
 }
 
+case class FirstDayBorrowed(firstDayBorrowed: Date) extends LibraryDataType[FirstDayBorrowed] {
+  override def compare(that: FirstDayBorrowed): Int = this.firstDayBorrowed compareTo that.firstDayBorrowed
+}
+
 case class LastDayBorrowed(lastDayBorrowed: Date) extends LibraryDataType[LastDayBorrowed] {
   override def compare(that: LastDayBorrowed): Int = this.lastDayBorrowed compareTo that.lastDayBorrowed
 }
@@ -38,15 +46,47 @@ case class DaysBorrow(daysBorrow: Int) extends LibraryDataType[DaysBorrow] {
   override def compare(that: DaysBorrow): Int = this.daysBorrow compare that.daysBorrow
 }
 
+case class IsBorrow(borrow: Boolean) extends LibraryDataType[IsBorrow] {
+  override def compare(that: IsBorrow): Int = this.borrow compare that.borrow
+}
+
+case class CostBorroweItem(costBorroweItem: Double) extends LibraryDataType[CostBorroweItem] {
+  override def compare(that: CostBorroweItem): Int = this.costBorroweItem compare that.costBorroweItem
+}
+
+
+
 case class LibraryItem(
                         author: Author = Author("Anonymous"),
                         title: Title = Title("No title"),
                         pages: Pages = Pages(0),
                         issueNumber: IssueNumber = IssueNumber(0),
                         IsElectronic: Boolean = false,
-                        lastDayBorrowed: LastDayBorrowed = LastDayBorrowed(new Date()),
-                        daysBorrow: DaysBorrow = DaysBorrow(0),
+                        IsBorrow: Boolean = false,
                         itemUUID: ItemUUID = ItemUUID(java.util.UUID.randomUUID.toString.substring(0, 13))
+                      ) {
+
+  def borrowItem(table: LibrarySQL[LibraryItem])(itemUUID: ItemUUID, daysBorrow: DaysBorrow): Unit = {
+    //TODO: Consultar el item.
+    //TODO: Crear el objeto BorrowItem.
+    //TODO: Si el LibraryItem es electronico calcular costo
+    //TODO: Insertar el objeto BorrowItem.
+    //TODO:
+    //TODO:
+  }
+
+  def borrowItem(table: LibrarySQL[LibraryItem])(title: Title, daysBorrow: DaysBorrow): Unit = {
+
+  }
+}
+
+case class BorrowItem(
+                       itemUUID: ItemUUID,
+                       firstDayBorrowed: FirstDayBorrowed = FirstDayBorrowed(new Date()),
+                       daysBorrow: DaysBorrow = DaysBorrow(0),
+                       lastDayBorrowed: LastDayBorrowed,
+                       costBorroweItem: CostBorroweItem = CostBorroweItem(1000),
+                       borrowUUID: BorrowUUID = BorrowUUID(java.util.UUID.randomUUID.toString.substring(0, 13))
                       ) {
 
   def borrowItem(table: LibrarySQL[LibraryItem])(itemUUID: ItemUUID, daysBorrow: DaysBorrow): Unit = {
