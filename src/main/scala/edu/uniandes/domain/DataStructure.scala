@@ -10,6 +10,10 @@ case class Author(author: String) extends LibraryDataType[Author] {
   override def compare(that: Author): Int = this.author compare that.author
 }
 
+case class ItemUUID(itemUUID: String) extends LibraryDataType[ItemUUID] {
+  override def compare(that: ItemUUID): Int = this.itemUUID compare that.itemUUID
+}
+
 case class Title(title: String) extends LibraryDataType[Title] {
   override def compare(that: Title): Int = this.title compare that.title
 }
@@ -41,5 +45,15 @@ case class LibraryItem(
                         issueNumber: IssueNumber = IssueNumber(0),
                         IsElectronic: Boolean = false,
                         lastDayBorrowed: LastDayBorrowed = LastDayBorrowed(new Date()),
-                        daysBorrow: DaysBorrow = DaysBorrow(0)
-                      )
+                        daysBorrow: DaysBorrow = DaysBorrow(0),
+                        itemUUID: ItemUUID = ItemUUID(java.util.UUID.randomUUID.toString.substring(0, 13))
+                      ) {
+
+  def borrowItem(table: LibrarySQL[LibraryItem])(itemUUID: ItemUUID, daysBorrow: DaysBorrow): Unit = {
+
+  }
+
+  def borrowItem(table: LibrarySQL[LibraryItem])(title: Title, daysBorrow: DaysBorrow): Unit = {
+
+  }
+}
