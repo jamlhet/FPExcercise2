@@ -1,7 +1,6 @@
 package edu.uniandes.services
 
 import java.nio.charset.StandardCharsets
-import java.security.MessageDigest
 import java.util.{Date, UUID}
 
 import edu.uniandes.domain._
@@ -11,7 +10,7 @@ object LibraryServices {
   def borrowPhysicalItem(libraryTable: LibrarySQL[LibraryItem], libraryBorrow: LibrarySQL[BorrowItem])
                         (itemUUID: ItemUUID, daysBorrow: DaysBorrow)
   : Unit = {
-    val libraryItem: LibraryItem = libraryTable.select(libraryTable)(List("=", itemUUID)).head
+    val libraryItem: LibraryItem = libraryTable.select(libraryTable)(List("=", itemUUID)).listRegisters.head
     val borrowItem = BorrowItem(libraryItem.itemUUID, LastDayBorrowed(new Date()), daysBorrow)
     libraryBorrow.insertInto(libraryBorrow)(borrowItem)
   }

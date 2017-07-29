@@ -60,10 +60,11 @@ case class LibraryItem(
                         pages: Pages,
                         issueNumber: IssueNumber = IssueNumber(0),
                         IsElectronic: Boolean = false,
-                        IsBorrow: Boolean = false
+                        IsBorrow: Boolean = false,
+                        itemUUID:  ItemUUID = ItemUUID(java.util.UUID.randomUUID.toString.substring(0, 6))
                       ){
-  val stringItem = s"${author.author}${title.title}${pages.pages}${issueNumber.issueNumber}$IsElectronic"
-  val itemUUID: ItemUUID = LibraryServices.itemUUID(stringItem)
+  /*val stringItem = s"${author.author}${title.title}${pages.pages}${issueNumber.issueNumber}$IsElectronic"
+  val itemUUID: ItemUUID = LibraryServices.itemUUID(stringItem)*/
 }
 
 case class BorrowItem(
@@ -72,5 +73,5 @@ case class BorrowItem(
                        daysBorrow: DaysBorrow = DaysBorrow(0),
                        costBorroweItem: CostBorroweItem = CostBorroweItem(1000),
                        firstDayBorrowed: FirstDayBorrowed = FirstDayBorrowed(new Date()),
-                       borrowUUID: BorrowUUID = BorrowUUID(java.util.UUID.randomUUID.toString.substring(0, 13))
+                       borrowUUID: BorrowUUID = BorrowUUID(java.util.UUID.randomUUID.toString.substring(0, 6))
                      )

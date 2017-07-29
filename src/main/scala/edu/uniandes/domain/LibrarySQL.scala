@@ -12,73 +12,73 @@ class LibrarySQL[T](var listRegisters: List[T]) {
     table
   }
 
-  def select(table: LibrarySQL[T])(where: List[_ >: String with Any]): List[T] = {
+  def select(table: LibrarySQL[T])(where: List[_ >: String with Any]): LibrarySQL[T] = {
     println(s"Select process. Records in table= ${table.listRegisters.size}")
     where.head match {
       case "*" =>
         //table.listRegisters.foreach(x => println(x))
-        table.listRegisters
+        new LibrarySQL[T](table.listRegisters)
       case ">" =>
         where.last match {
           case Author(x) =>
-            table.listRegisters.filter(_.asInstanceOf[LibraryItem].author.author > x)
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[LibraryItem].author.author > x))
           case Title(x) =>
-            table.listRegisters.filter(_.asInstanceOf[LibraryItem].title.title > x)
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[LibraryItem].title.title > x))
           case Pages(x) =>
-            table.listRegisters.filter(_.asInstanceOf[LibraryItem].pages.pages > x)
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[LibraryItem].pages.pages > x))
           case IssueNumber(x) =>
-            table.listRegisters.filter(_.asInstanceOf[LibraryItem].issueNumber.issueNumber > x)
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[LibraryItem].issueNumber.issueNumber > x))
           case FirstDayBorrowed(x) =>
-            table.listRegisters.filter(_.asInstanceOf[BorrowItem].firstDayBorrowed.firstDayBorrowed after x)
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[BorrowItem].firstDayBorrowed.firstDayBorrowed after x))
           case DaysBorrow(x) =>
-            table.listRegisters.filter(_.asInstanceOf[BorrowItem].daysBorrow.daysBorrow > x)
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[BorrowItem].daysBorrow.daysBorrow > x))
           case _ =>
             println(s"Data type not supported")
-            List()
+            new LibrarySQL[T](List())
         }
       case "<" =>
         where.last match {
           case Author(x) =>
-            table.listRegisters.filter(_.asInstanceOf[LibraryItem].author.author < x)
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[LibraryItem].author.author < x))
           case Title(x) =>
-            table.listRegisters.filter(_.asInstanceOf[LibraryItem].title.title < x)
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[LibraryItem].title.title < x))
           case Pages(x) =>
-            table.listRegisters.filter(_.asInstanceOf[LibraryItem].pages.pages < x)
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[LibraryItem].pages.pages < x))
           case IssueNumber(x) =>
-            table.listRegisters.filter(_.asInstanceOf[LibraryItem].issueNumber.issueNumber < x)
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[LibraryItem].issueNumber.issueNumber < x))
           case FirstDayBorrowed(x) =>
-            table.listRegisters.filter(_.asInstanceOf[BorrowItem].firstDayBorrowed.firstDayBorrowed before x)
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[BorrowItem].firstDayBorrowed.firstDayBorrowed before x))
           case DaysBorrow(x) =>
-            table.listRegisters.filter(_.asInstanceOf[BorrowItem].daysBorrow.daysBorrow < x)
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[BorrowItem].daysBorrow.daysBorrow < x))
           case _ =>
             println(s"Data type not supported")
-            List()
+            new LibrarySQL[T](List())
         }
       case "=" =>
         where.last match {
           case Author(x) =>
-            table.listRegisters.filter(_.asInstanceOf[LibraryItem].author.author equals x)
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[LibraryItem].author.author equals x))
           case Title(x) =>
-            table.listRegisters.filter(_.asInstanceOf[LibraryItem].title.title equals x)
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[LibraryItem].title.title equals x))
           case Pages(x) =>
-            table.listRegisters.filter(_.asInstanceOf[LibraryItem].pages.pages equals x)
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[LibraryItem].pages.pages equals x))
           case IssueNumber(x) =>
-            table.listRegisters.filter(_.asInstanceOf[LibraryItem].issueNumber.issueNumber equals x)
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[LibraryItem].issueNumber.issueNumber equals x))
           case FirstDayBorrowed(x) =>
-            table.listRegisters.filter(_.asInstanceOf[BorrowItem].firstDayBorrowed.firstDayBorrowed equals x)
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[BorrowItem].firstDayBorrowed.firstDayBorrowed equals x))
           case DaysBorrow(x) =>
-            table.listRegisters.filter(_.asInstanceOf[BorrowItem].daysBorrow.daysBorrow equals x)
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[BorrowItem].daysBorrow.daysBorrow equals x))
           case IsElectronic(x) =>
-            table.listRegisters.filter(_.asInstanceOf[LibraryItem].IsElectronic)
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[LibraryItem].IsElectronic))
           case ItemUUID(x) =>
-            table.listRegisters.filter(_.asInstanceOf[LibraryItem].itemUUID.itemUUID equals x)
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[LibraryItem].itemUUID.itemUUID equals x))
           case _ =>
             println(s"Data type not supported")
-            List()
+            new LibrarySQL[T](List())
         }
       case _ =>
         println(s"No records found")
-        List()
+        new LibrarySQL[T](List())
     }
   }
 
