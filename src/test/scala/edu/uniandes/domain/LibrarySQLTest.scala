@@ -71,18 +71,4 @@ class LibrarySQLTest extends FlatSpec with Matchers {
   "Select is electronic" should " 6" in {
     assert(booksTable.select(booksTable)(List("=", IsElectronic(true))).listRegisters.length == 6)
   }
-
-  /*
-  booksTable.update(booksTable)(book4, book1)
-  booksTable.update(booksTable)(book4, book5)
-  booksTable.listRegisters.sortWith(_.pages > _.pages)
-  println("------------------")
-  booksTable.listRegisters.filter(_.pages.pages > 100).foreach(r => println(r))
-  println("------------------")
-  booksTable.listRegisters.filter(_.title.title > "OLa María").foreach(r => println(r))
-  println("------------------")
-  booksTable.listRegisters.filter(_.author.author > "oGabo").foreach(r => println(r))
-  LibraryServices.borrowPhysicalItem()
-  */
-
 }

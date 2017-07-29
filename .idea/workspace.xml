@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c7226035-d26d-464b-a9e3-32b4fa6e61ff" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/DataStructure.scala" afterPath="$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/DataStructure.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/LibrarySQL.scala" afterPath="$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/LibrarySQL.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/edu/uniandes/services/LibraryServices.scala" afterPath="$PROJECT_DIR$/src/main/scala/edu/uniandes/services/LibraryServices.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/edu/uniandes/domain/LibraryServicesTest.scala" afterPath="$PROJECT_DIR$/src/test/scala/edu/uniandes/domain/LibraryServicesTest.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/edu/uniandes/domain/LibrarySQLTest.scala" afterPath="$PROJECT_DIR$/src/test/scala/edu/uniandes/domain/LibrarySQLTest.scala" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/project/project/target/" />
@@ -24,62 +21,30 @@
     </projectState>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="LibrarySQL.scala" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/LibrarySQL.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="232">
-                  <caret line="87" column="118" lean-forward="false" selection-start-line="87" selection-start-column="118" selection-end-line="87" selection-end-column="118" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="LibraryServicesTest.scala" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/test/scala/edu/uniandes/domain/LibraryServicesTest.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="400">
-                  <caret line="25" column="99" lean-forward="false" selection-start-line="25" selection-start-column="99" selection-end-line="25" selection-end-column="99" />
-                  <folding>
-                    <element signature="e#29#73#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="DataStructure.scala" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/DataStructure.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="876">
-                  <caret line="74" column="39" lean-forward="false" selection-start-line="74" selection-start-column="23" selection-end-line="74" selection-end-column="39" />
-                  <folding>
-                    <element signature="e#29#50#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="LibraryServices.scala" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/scala/edu/uniandes/services/LibraryServices.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="368">
-                  <caret line="23" column="18" lean-forward="true" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
-                  <folding>
-                    <element signature="e#31#71#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="LibraryServicesTest.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/scala/edu/uniandes/domain/LibraryServicesTest.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="25" column="99" lean-forward="false" selection-start-line="25" selection-start-column="99" selection-end-line="25" selection-end-column="99" />
+              <folding>
+                <element signature="e#29#73#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LibrarySQLTest.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/scala/edu/uniandes/domain/LibrarySQLTest.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1152">
+              <caret line="72" column="3" lean-forward="false" selection-start-line="72" selection-start-column="3" selection-end-line="72" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -126,11 +91,11 @@
         <option value="$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/LibrarySQL.java" />
         <option value="$PROJECT_DIR$/build.sbt" />
         <option value="$PROJECT_DIR$/src/main/scala/edu/uniandes/Library.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/edu/uniandes/domain/LibrarySQLTest.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/DataStructure.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/edu/uniandes/services/LibraryServices.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/edu/uniandes/domain/LibraryServicesTest.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/LibrarySQL.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/edu/uniandes/domain/LibrarySQLTest.scala" />
       </list>
     </option>
   </component>
@@ -561,7 +526,7 @@
       <workItem from="1501269722072" duration="3611000" />
       <workItem from="1501341420729" duration="993000" />
       <workItem from="1501342759297" duration="3095000" />
-      <workItem from="1501345879663" duration="13144000" />
+      <workItem from="1501345879663" duration="13188000" />
     </task>
     <task id="LOCAL-00001" summary="Se actualiza repo.">
       <created>1500922171418</created>
@@ -724,7 +689,14 @@
       <option name="project" value="LOCAL" />
       <updated>1501353677032</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="BETA">
+      <created>1501365076095</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1501365076095</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -760,7 +732,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105385000" />
+    <option name="totallyTimeSpent" value="105429000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -784,7 +756,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936507" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35515872" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35515872" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936507" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -864,7 +836,8 @@
     <MESSAGE value="TODO" />
     <MESSAGE value="Haciendo test" />
     <MESSAGE value="Haciendo test BorrowService" />
-    <option name="LAST_COMMIT_MESSAGE" value="Haciendo test BorrowService" />
+    <MESSAGE value="BETA" />
+    <option name="LAST_COMMIT_MESSAGE" value="BETA" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1119,29 +1092,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/edu/uniandes/domain/LibrarySQLTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-464">
-          <caret line="4" column="20" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/Documentos/jdk1.8.0_131/src.zip!/java/util/Date.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="327">
           <caret line="130" column="13" lean-forward="false" selection-start-line="130" selection-start-column="13" selection-end-line="130" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/edu/uniandes/services/LibraryServices.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="23" column="18" lean-forward="true" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
-          <folding>
-            <element signature="e#31#71#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1155,6 +1110,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/edu/uniandes/services/LibraryServices.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="23" column="18" lean-forward="true" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+          <folding>
+            <element signature="e#31#71#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/LibrarySQL.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="87" column="118" lean-forward="false" selection-start-line="87" selection-start-column="118" selection-end-line="87" selection-end-column="118" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/edu/uniandes/domain/LibrarySQLTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1152">
+          <caret line="72" column="3" lean-forward="false" selection-start-line="72" selection-start-column="3" selection-end-line="72" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/edu/uniandes/domain/LibraryServicesTest.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
@@ -1162,14 +1143,6 @@
           <folding>
             <element signature="e#29#73#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/edu/uniandes/domain/LibrarySQL.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="87" column="118" lean-forward="false" selection-start-line="87" selection-start-column="118" selection-end-line="87" selection-end-column="118" />
-          <folding />
         </state>
       </provider>
     </entry>
