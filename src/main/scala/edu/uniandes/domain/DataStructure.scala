@@ -2,9 +2,9 @@ package edu.uniandes.domain
 
 import java.util.Date
 
-abstract class LibraryDataType[T]() extends Ordered[T] {
+import edu.uniandes.services.LibraryServices
 
-}
+abstract class LibraryDataType[T]() extends Ordered[T]
 
 case class Author(author: String) extends LibraryDataType[Author] {
   override def compare(that: Author): Int = this.author compare that.author
@@ -55,14 +55,16 @@ case class CostBorroweItem(costBorroweItem: Double) extends LibraryDataType[Cost
 }
 
 case class LibraryItem(
-                        author: Author = Author("Anonymous"),
-                        title: Title = Title("No title"),
-                        pages: Pages = Pages(0),
+                        author: Author,
+                        title: Title,
+                        pages: Pages,
                         issueNumber: IssueNumber = IssueNumber(0),
                         IsElectronic: Boolean = false,
-                        IsBorrow: Boolean = false,
-                        itemUUID: ItemUUID = ItemUUID(java.util.UUID.randomUUID.toString.substring(0, 13))
-                      )
+                        IsBorrow: Boolean = false
+                      ){
+  val stringItem = s"${author.author}${title.title}${pages.pages}${issueNumber.issueNumber}$IsElectronic"
+  val itemUUID: ItemUUID = LibraryServices.itemUUID(stringItem)
+}
 
 case class BorrowItem(
                        itemUUID: ItemUUID,
@@ -71,4 +73,4 @@ case class BorrowItem(
                        costBorroweItem: CostBorroweItem = CostBorroweItem(1000),
                        firstDayBorrowed: FirstDayBorrowed = FirstDayBorrowed(new Date()),
                        borrowUUID: BorrowUUID = BorrowUUID(java.util.UUID.randomUUID.toString.substring(0, 13))
-                      )
+                     )

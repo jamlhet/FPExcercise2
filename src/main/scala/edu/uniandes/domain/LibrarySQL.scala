@@ -4,7 +4,10 @@ class LibrarySQL[T](var listRegisters: List[T]) {
 
   def insertInto(table: LibrarySQL[T])(newRegister: T): LibrarySQL[T] = {
     println(s"Insert process...")
-    table.listRegisters = table.listRegisters ::: List(newRegister)
+    if(table.listRegisters.exists(_ equals newRegister))
+      println("The item is already registered")
+    else
+      table.listRegisters = table.listRegisters ::: List(newRegister)
     println(s"The item $newRegister was inserted successfully")
     table
   }

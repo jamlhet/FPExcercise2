@@ -1,10 +1,12 @@
 package edu.uniandes.services
 
-import java.util.Date
+import java.nio.charset.StandardCharsets
+import java.security.MessageDigest
+import java.util.{Date, UUID}
 
 import edu.uniandes.domain._
 
-class LibraryServices {
+object LibraryServices {
 
   def borrowPhysicalItem(libraryTable: LibrarySQL[LibraryItem], libraryBorrow: LibrarySQL[BorrowItem])
                         (itemUUID: ItemUUID, daysBorrow: DaysBorrow)
@@ -16,5 +18,9 @@ class LibraryServices {
 
   def borrowItem(table: LibrarySQL[LibraryItem])(title: Title, daysBorrow: DaysBorrow): Unit = {
 
+  }
+
+  def itemUUID(msg: String): ItemUUID = {
+    ItemUUID(UUID.nameUUIDFromBytes(msg.getBytes(StandardCharsets.UTF_8)).toString)
   }
 }
