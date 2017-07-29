@@ -71,7 +71,7 @@ case class BorrowItem(
                        itemUUID: ItemUUID,
                        lastDayBorrowed: LastDayBorrowed,
                        daysBorrow: DaysBorrow = DaysBorrow(0),
-                       costBorroweItem: CostBorroweItem = CostBorroweItem(1000),
+                       costBorroweItem: CostBorroweItem = CostBorroweItem(0),
                        firstDayBorrowed: FirstDayBorrowed = FirstDayBorrowed(new Date()),
                        borrowUUID: BorrowUUID = BorrowUUID(java.util.UUID.randomUUID.toString.substring(0, 6))
                      )

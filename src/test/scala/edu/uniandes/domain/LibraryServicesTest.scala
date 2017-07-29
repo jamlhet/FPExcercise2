@@ -32,7 +32,7 @@ class LibraryServicesTest extends FlatSpec with Matchers {
   booksTable.insertInto(booksTable)(book5)
   booksTable.insertInto(booksTable)(book6)
   booksTable.insertInto(booksTable)(book7)
-  //repeat
+
   magazineTable.insertInto(magazineTable)(magazine1)
   magazineTable.insertInto(magazineTable)(magazine2)
   magazineTable.insertInto(magazineTable)(magazine3)
@@ -41,13 +41,20 @@ class LibraryServicesTest extends FlatSpec with Matchers {
   magazineTable.insertInto(magazineTable)(magazine6)
   magazineTable.insertInto(magazineTable)(magazine7)
 
-  "Borrow process physical item" should "borrow item" in {
+  "Borrow process" should "borrow item(s)" in {
     //Query
     val filter1: LibrarySQL[LibraryItem] = magazineTable.select(magazineTable)(List("=",Title("Sport Illustrated")))
-    val filter2: LibrarySQL[LibraryItem] = filter1.select(filter1)(List("=",IsElectronic(false)))
-    val mySelection = filter2.select(filter2)(List("=",IsBorrow(false))).listRegisters.head
-    LibraryServices.borrowPhysicalItem(magazineTable,libraryBorrow)(mySelection.itemUUID,DaysBorrow(5))
-    println("")
+    val mySelection: LibraryItem = filter1.select(filter1)(List("=",IsElectronic(true))).listRegisters.head
+    LibraryServices.borrowItem(magazineTable,libraryBorrow)(mySelection,DaysBorrow(5))
+    val filter2: LibrarySQL[LibraryItem] = magazineTable.select(magazineTable)(List("=",Title("Sport Illustrated")))
+    val mySelection2: LibraryItem = filter2.select(filter2)(List("=",IsElectronic(false))).listRegisters.head
+    LibraryServices.borrowItem(magazineTable,libraryBorrow)(mySelection2,DaysBorrow(5))
+    val filter3: LibrarySQL[LibraryItem] = magazineTable.select(magazineTable)(List("=",Title("Sport Illustrated")))
+    val mySelection3: LibraryItem = filter2.select(filter3)(List("=",IsElectronic(false))).listRegisters.head
+    LibraryServices.borrowItem(magazineTable,libraryBorrow)(mySelection3,DaysBorrow(5))
+    assert(libraryBorrow.listRegisters.length == 2)
+    assert(libraryBorrow.select(libraryBorrow)(List(">",CostBorroweItem(0))).listRegisters.length ==1)
+    assert(libraryBorrow.select(libraryBorrow)(List("=",CostBorroweItem(0))).listRegisters.length ==1)
   }
 
 }

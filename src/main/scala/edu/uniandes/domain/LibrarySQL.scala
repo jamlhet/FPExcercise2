@@ -13,7 +13,7 @@ class LibrarySQL[T](var listRegisters: List[T]) {
   }
 
   def select(table: LibrarySQL[T])(where: List[_ >: String with Any]): LibrarySQL[T] = {
-    println(s"Select process. Records in table= ${table.listRegisters.size}")
+    println(s"Select process.")// Records in table= ${table.listRegisters.size}")
     where.head match {
       case "*" =>
         //table.listRegisters.foreach(x => println(x))
@@ -32,6 +32,10 @@ class LibrarySQL[T](var listRegisters: List[T]) {
             new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[BorrowItem].firstDayBorrowed.firstDayBorrowed after x))
           case DaysBorrow(x) =>
             new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[BorrowItem].daysBorrow.daysBorrow > x))
+          case LastDayBorrowed(x) =>
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[BorrowItem].lastDayBorrowed.lastDayBorrowed after x))
+          case CostBorroweItem(x) =>
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[BorrowItem].costBorroweItem.costBorroweItem > x))
           case _ =>
             println(s"Data type not supported")
             new LibrarySQL[T](List())
@@ -50,6 +54,10 @@ class LibrarySQL[T](var listRegisters: List[T]) {
             new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[BorrowItem].firstDayBorrowed.firstDayBorrowed before x))
           case DaysBorrow(x) =>
             new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[BorrowItem].daysBorrow.daysBorrow < x))
+          case LastDayBorrowed(x) =>
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[BorrowItem].lastDayBorrowed.lastDayBorrowed before  x))
+          case CostBorroweItem(x) =>
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[BorrowItem].costBorroweItem.costBorroweItem < x))
           case _ =>
             println(s"Data type not supported")
             new LibrarySQL[T](List())
@@ -74,6 +82,10 @@ class LibrarySQL[T](var listRegisters: List[T]) {
             new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[LibraryItem].IsBorrow equals x))
           case ItemUUID(x) =>
             new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[LibraryItem].itemUUID.itemUUID equals x))
+          case LastDayBorrowed(x) =>
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[BorrowItem].lastDayBorrowed.lastDayBorrowed equals  x))
+          case CostBorroweItem(x) =>
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[BorrowItem].costBorroweItem.costBorroweItem == x))
           case _ =>
             println(s"Data type not supported")
             new LibrarySQL[T](List())
@@ -98,14 +110,13 @@ class LibrarySQL[T](var listRegisters: List[T]) {
   def update(table: LibrarySQL[T])(register: T, registerUpdate: T): Unit = {
     println("Update process...")
     val target: List[T] = findOne(table)(register)
-    this.listRegisters.foreach(x => println(x))
+    //this.listRegisters.foreach(x => println(x))
     if (table.listRegisters.exists(_ equals registerUpdate)) {
       println(s"The item $registerUpdate already exists in the database")
     } else {
-      table.listRegisters = table.listRegisters.filter(!_.equals(target.head))
-      table.insertInto(table)(registerUpdate)
+      this.listRegisters = this.listRegisters.filter(!_.equals(target.head))
+      this.insertInto(table)(registerUpdate)
       println("Record successfully updated")
-      select(table)(List("*"))
     }
   }
 }
