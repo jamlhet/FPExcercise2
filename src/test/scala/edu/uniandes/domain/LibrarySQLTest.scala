@@ -1,6 +1,5 @@
 package edu.uniandes.domain
 
-import edu.uniandes.services.LibraryServices
 import org.scalatest._
 
 class LibrarySQLTest extends FlatSpec with Matchers {
@@ -14,7 +13,7 @@ class LibrarySQLTest extends FlatSpec with Matchers {
   val book4 = LibraryItem(Author("XGabo"), Title("aLa María"), Pages(50))
   val book5 = LibraryItem(Author("oGabo"), Title("oLa María"), Pages(55))
   val book6 = LibraryItem(Author("hGabo"), Title("ALa María"), Pages(500),IsElectronic = true)
-  val book7 = LibraryItem(Author("aGabo"), Title("xLa María"), Pages(10000))
+  val book7 = LibraryItem(Author("aGabo"), Title("xLa María"), Pages(10000),IsElectronic = true)
 
   "Insert into" should "ok" in {
     booksTable.insertInto(booksTable)(book1)
@@ -24,23 +23,49 @@ class LibrarySQLTest extends FlatSpec with Matchers {
     booksTable.insertInto(booksTable)(book5)
     booksTable.insertInto(booksTable)(book6)
     booksTable.insertInto(booksTable)(book7)
+    //repeat
+    booksTable.insertInto(booksTable)(book1)
+    booksTable.insertInto(booksTable)(book2)
+    booksTable.insertInto(booksTable)(book3)
+    booksTable.insertInto(booksTable)(book4)
+    booksTable.insertInto(booksTable)(book5)
+    booksTable.insertInto(booksTable)(book6)
+    booksTable.insertInto(booksTable)(book7)
+
+    assert(booksTable.listRegisters nonEmpty)
+    assert(booksTable.listRegisters.length == 7)
   }
 
-  booksTable.insertInto(booksTable)(book1)
-  booksTable.insertInto(booksTable)(book5)
+  "Select *" should "7" in {
+    assert(booksTable.select(booksTable)(List("*")).length == 7)
+  }
 
-  "The length of the list" should "be nonempty" in {
-    assert(booksTable.listRegisters nonEmpty)
-    assert(booksTable.listRegisters.length == 5)
+  "Select > pages 100" should " 4" in {
+    assert(booksTable.select(booksTable)(List(">", Pages(100))).length == 4)
+  }
+
+  "Select > title oLa María" should " 2" in {
+    assert(booksTable.select(booksTable)(List(">", Title("oLa María"))).length == 2)
+  }
+
+  "Select > autor aGabo" should " 3" in {
+    assert(booksTable.select(booksTable)(List(">", Author("aGabo"))).length == 3)
+  }
+
+  "Select < pages 500" should " 3" in {
+    assert(booksTable.select(booksTable)(List("<", Pages(500))).length == 3)
+  }
+
+
+  "Select = pages 500" should " 2" in {
+    assert(booksTable.select(booksTable)(List("=", Pages(500))).length == 2)
+  }
+
+  "Select is electronic" should " 2" in {
+    assert(booksTable.select(booksTable)(List("=", IsElectronic(true))).length == 2)
   }
 
   /*
-  booksTable.select(booksTable)(List("*"))
-  booksTable.select(booksTable)(List(">", Pages(100))).foreach(r => println(r))
-  booksTable.select(booksTable)(List(">", Title("OLa María"))).foreach(r => println(r))
-  booksTable.select(booksTable)(List(">", Author("aGabo"))).foreach(r => println(r))
-  booksTable.select(booksTable)(List("<",Pages(500))).foreach(r => println(r))
-  booksTable.select(booksTable)(List("=",Pages(500))).foreach(r => println(r))
   booksTable.update(booksTable)(book4, book1)
   booksTable.update(booksTable)(book4, book5)
   booksTable.listRegisters.sortWith(_.pages > _.pages)

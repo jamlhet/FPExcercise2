@@ -3,21 +3,20 @@ package edu.uniandes.domain
 class LibrarySQL[T](var listRegisters: List[T]) {
 
   def insertInto(table: LibrarySQL[T])(newRegister: T): LibrarySQL[T] = {
-    println(s"Insert process...")
     if(table.listRegisters.exists(_ equals newRegister))
       println("The item is already registered")
     else
       table.listRegisters = table.listRegisters ::: List(newRegister)
-    println(s"The item $newRegister was inserted successfully")
+    //println(s"The item $newRegister was inserted successfully")
+    println(s"Insert process ok")
     table
   }
 
   def select(table: LibrarySQL[T])(where: List[_ >: String with Any]): List[T] = {
-    println("Select process...")
+    println(s"Select process. Records in table= ${table.listRegisters.size}")
     where.head match {
       case "*" =>
-        println(s"Records found ${table.listRegisters.size}")
-        table.listRegisters.foreach(x => println(x))
+        //table.listRegisters.foreach(x => println(x))
         table.listRegisters
       case ">" =>
         where.last match {
