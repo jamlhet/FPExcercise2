@@ -69,7 +69,9 @@ class LibrarySQL[T](var listRegisters: List[T]) {
           case DaysBorrow(x) =>
             new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[BorrowItem].daysBorrow.daysBorrow equals x))
           case IsElectronic(x) =>
-            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[LibraryItem].IsElectronic))
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[LibraryItem].IsElectronic equals x))
+          case IsBorrow(x) =>
+            new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[LibraryItem].IsBorrow equals x))
           case ItemUUID(x) =>
             new LibrarySQL[T](table.listRegisters.filter(_.asInstanceOf[LibraryItem].itemUUID.itemUUID equals x))
           case _ =>

@@ -1,5 +1,6 @@
 package edu.uniandes.domain
 
+import edu.uniandes.services.LibraryServices
 import org.scalatest._
 
 class LibraryServicesTest extends FlatSpec with Matchers {
@@ -42,8 +43,11 @@ class LibraryServicesTest extends FlatSpec with Matchers {
 
   "Borrow process physical item" should "borrow item" in {
     //Query
-    val filter1 = magazineTable.select(magazineTable)(List("=",Title("Sport Illustrated")))
-    val filter2 = filter1.select(filter1)(List("=",IsElectronic(false))).listRegisters.head
+    val filter1: LibrarySQL[LibraryItem] = magazineTable.select(magazineTable)(List("=",Title("Sport Illustrated")))
+    val filter2: LibrarySQL[LibraryItem] = filter1.select(filter1)(List("=",IsElectronic(false)))
+    val mySelection = filter2.select(filter2)(List("=",IsBorrow(false))).listRegisters.head
+    LibraryServices.borrowPhysicalItem(magazineTable,libraryBorrow)(mySelection.itemUUID,DaysBorrow(5))
+    println("")
   }
 
 }
